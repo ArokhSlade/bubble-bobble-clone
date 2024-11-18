@@ -1,0 +1,21 @@
+2024 11 18 mo
+17:12
+
+[]level with tile map layer
+[]tile map
+[]player
+ []bubble monsters
+ []spike bubbles
+ []jump
+ []run
+ []gravity
+ []die
+[]monsters
+ []ai
+ []hurt player
+ []
+[]fruit
+ []add score
+[]score
+[]level transition
+[]lives
