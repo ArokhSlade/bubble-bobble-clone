@@ -1,21 +1,13 @@
-2024 11 18 mo
-17:12
+bubble bobble clone work log
 
-[]level with tile map layer
-[]tile map
-[]player
- []bubble monsters
- []spike bubbles
- []jump
- []run
- []gravity
- []die
-[]monsters
- []ai
- []hurt player
- []
-[]fruit
- []add score
-[]score
-[]level transition
-[]lives
+2024 11 18 mo
+17:12-??:??
+
+2024 11 22
+09:20-
+
+how to make ai jump?
+-> look ahead 1-2 groundtiles, if it's empty, measure gap (count missing blocks)
+
+decide next move in regular intervals
+->change direction, run, jump forward/jump up/drop

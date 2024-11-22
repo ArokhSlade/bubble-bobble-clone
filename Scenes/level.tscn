@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://vourc15g0k5q"]
 
-[ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
+[ext_resource type="Texture2D" uid="uid://c2wcqq3k1afla" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_ledpb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]

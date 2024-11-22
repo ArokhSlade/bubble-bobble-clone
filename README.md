@@ -18,7 +18,8 @@ learning project
  [x]gravity
  []die
  [x]ghost through platforms from below
- [_]collide with walls
+  [_] precise control over ghosting/colliding with tiles
+ [x]collide with walls
  [x]collide with ground
 []monsters
  []ai
