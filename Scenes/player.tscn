@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgcpvlrud1nhe"]
 
-[ext_resource type="Script" path="res://Scenes/character_body_2d.gd" id="1_q6a1q"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_q6a1q"]
 [ext_resource type="Texture2D" uid="uid://boj5g1ym7fvh6" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_010.png" id="2_n10lf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh4ob"]

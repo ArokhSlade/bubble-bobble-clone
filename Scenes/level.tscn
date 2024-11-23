@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://vourc15g0k5q"]
+[gd_scene load_steps=6 format=4 uid="uid://vourc15g0k5q"]
 
-[ext_resource type="Texture2D" uid="uid://c2wcqq3k1afla" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
+[ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_ledpb"]
+[ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy.tscn" id="3_8a1ja"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]
 texture = ExtResource("1_nitc3")
@@ -500,5 +501,8 @@ tile_set = SubResource("TileSet_nas60")
 position = Vector2(208, 156)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 163)
+position = Vector2(288, 162)
 zoom = Vector2(2, 2)
+
+[node name="Enemy" parent="." instance=ExtResource("3_8a1ja")]
+position = Vector2(219, 156)

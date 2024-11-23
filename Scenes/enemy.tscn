@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxmh1h5mcr1yt"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_au1b5"]
+[ext_resource type="Texture2D" uid="uid://dkjwehvr7es2t" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_011.png" id="1_ib8tm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qojwd"]
+radius = 4.0
+height = 16.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_au1b5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qojwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_ib8tm")
+hframes = 4
+vframes = 4
+frame = 9
