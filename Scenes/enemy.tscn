@@ -19,3 +19,11 @@ texture = ExtResource("1_ib8tm")
 hframes = 4
 vframes = 4
 frame = 9
+
+[node name="Label" type="Label" parent="."]
+offset_left = -9.0
+offset_top = -25.0
+offset_right = 10.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 9
+text = "NPC"
