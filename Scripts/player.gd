@@ -3,6 +3,20 @@ extends CharacterBody2D
 
 @export var speed = 90.0
 @export var jump_speed = -200.0
+@export var projectile : PackedScene
+@export var reload_seconds = 1.0
+
+const Direction = GlobalEnums.Direction
+@export var start_heading := Direction.RIGHT
+@onready var heading = start_heading
+@onready var sprite = $Sprite2D
+
+func get_width():
+	return $CollisionShape2D.shape.radius
+
+func _ready():
+	$ReloadTimer.wait_time = reload_seconds
+
 
 
 func _physics_process(delta):
@@ -22,4 +36,63 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 
+	heading = compute_new_heading()
+	update_sprite()
+		
+	if Input.is_action_just_pressed("shoot"):
+		request_shoot()
+
+	process_collisions()
+
 	move_and_slide()
+	
+func request_shoot():
+	if $ReloadTimer.is_stopped():
+		shoot()
+
+func shoot():
+	var new_bullet = projectile.instantiate() #todo how to pass concstructor arguments
+	new_bullet.heading = GlobalEnums.horizontal(heading)
+	var spawn_position = global_position
+	spawn_position += GlobalEnums.as_vector2(heading) * (get_width() + new_bullet.get_width())
+	new_bullet.global_position = spawn_position
+	%Bubbles.add_child(new_bullet)
+	
+	$ReloadTimer.start()
+
+func compute_new_heading() -> Direction:
+	var result : Direction
+	var old_horizontal_heading = GlobalEnums.horizontal(heading)	
+	result = GlobalEnums.from_vector2(velocity)
+	if velocity.x == 0.0:
+		result |= old_horizontal_heading
+	return result
+	
+func update_sprite():
+	sprite.flip_h = heading & Direction.LEFT
+	
+func process_collisions():
+	var collisions_count = get_slide_collision_count()
+	for i in range(collisions_count):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider == null:
+			continue
+		if collider.has_method("pop"):
+			#it's a bubble
+			var collision_angle = collision.get_angle()
+			#from below
+			if collision_angle <= PI / 3.0:
+				print ("from_top")
+			#from side
+			elif collision_angle <= PI / 3.0 * 2.0:
+				print ("from_side")
+			else: 
+				print ("from_below")
+				collider.pop()
+				
+
+func _on_hit_box_area_body_entered(body):
+	#TODO: may delete this
+	if (body.has_method("pop")):
+		pass

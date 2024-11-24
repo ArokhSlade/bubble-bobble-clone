@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c5yh5ye46q16k"]
+
+[ext_resource type="Script" path="res://Scripts/player_bullet.gd" id="1_woi6e"]
+[ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_5uvay"]
+[ext_resource type="Texture2D" uid="uid://cy6ijsrqsi80y" path="res://Assets/bubble bobble sprite sheets/14077_alpha.png" id="3_iw0x5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oi4"]
+size = Vector2(12, 14)
+
+[node name="PlayerProjectile" type="Node2D"]
+script = ExtResource("1_woi6e")
+floating_bubble_scene = ExtResource("2_5uvay")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_iw0x5")
+region_enabled = true
+region_rect = Rect2(43, 1051, 12, 14)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v7oi4")
+
+[node name="DisarmTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="DisarmTimer" to="." method="_on_disarm_timer_timeout"]

@@ -1,18 +1,13 @@
 extends CharacterBody2D
 
 #@onready var tiles : TileMapLayer = get_tree().root.find_child("TileMapLayer",true,false)
-@onready var tiles : TileMapLayer = %TileMapLayer
+@onready var tiles : TileMapLayerPlus = %TileMapLayer
 
 @export var speed = 120.0
 @export var jump_speed = -210.0
+@export var FloatingBubble : PackedScene
 
-enum Direction {
-	NONE = 0x1 << 0, 
-	LEFT = 0x1 << 1, 
-	RIGHT = 0x1 << 2, 
-	UP = 0x1 << 3,
-	DOWN = 0x1 << 4
-}
+const Direction = GlobalEnums.Direction
 
 var heading : Direction = Direction.RIGHT
 var is_jumping = false
@@ -72,7 +67,7 @@ func get_movement_request() -> Vector2:
 	update_heading(move_intent)
 	
 	
-	return as_vector2(move_intent)
+	return GlobalEnums.as_vector2(move_intent)
 
 
 func update_heading(new_direction : Direction):
@@ -187,19 +182,10 @@ func measure_gap_at(cell_coords : Vector2i, direction : Direction) -> int:
 		
 	return gap_width
 	
-
-func as_vector2(move_intent : Direction) -> Vector2:
-	var result := Vector2()
+func hit():
+	var bubbled_enemy = FloatingBubble.instantiate()
+	bubbled_enemy.contained_enemy = self
+	get_parent().call_deferred("add_child",bubbled_enemy)
+	bubbled_enemy.global_position = global_position
 	
-	if (move_intent & Direction.RIGHT) :
-		result.x = 1.0
-	elif (move_intent & Direction.LEFT) : 
-		result.x = -1.0
-	if (move_intent & Direction.UP) : 
-		result.y = 1.0
-		
-	return result
-
-
-	
-	
+	get_parent().remove_child(self)
