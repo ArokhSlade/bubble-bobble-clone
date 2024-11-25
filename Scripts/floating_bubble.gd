@@ -3,16 +3,24 @@ extends CharacterBody2D
 @export var speed : int = 50
 @onready var tiles : TileMapLayer = $/root/Level/%TileMapLayer
 const Direction = GlobalEnums.Direction
-
+@export var stomp_frames : int = 5
+@onready var stomp_delay = stomp_frames / 60.0
+@onready var stomp_timer = $StompTimer
 var heading = Direction.UP
+
 
 #TODO: when self is freed, does this get free too?
 var contained_enemy : Object = null
+
+
+func _ready():
+	$StompTimer.wait_time = stomp_delay
 
 func _physics_process(delta):
 	var float_direction = compute_float_direction()
 	float_direction = GlobalEnums.as_vector2(float_direction)
 	velocity = float_direction * speed
+	
 	move_and_slide()
 	
 	
@@ -63,3 +71,16 @@ func pop():
 	
 func release_enemy():
 	pass
+
+
+func _on_stomp_area_body_entered(body: Node2D) -> void:	
+	if stomp_timer.is_stopped():
+		stomp_timer.start()
+
+
+func _on_stomp_timer_timeout() -> void:
+	pop()
+
+
+func _on_stomp_area_body_exited(body: Node2D) -> void:
+	stomp_timer.stop()

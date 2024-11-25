@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgcpvlrud1nhe"]
+[gd_scene load_steps=9 format=3 uid="uid://cgcpvlrud1nhe"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_q6a1q"]
 [ext_resource type="PackedScene" uid="uid://c5yh5ye46q16k" path="res://Scenes/player_bullet.tscn" id="2_fc3x7"]
-[ext_resource type="Texture2D" uid="uid://boj5g1ym7fvh6" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_010.png" id="2_n10lf"]
+[ext_resource type="Texture2D" uid="uid://4215butt4s4n" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_010.png" id="2_n10lf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh4ob"]
 radius = 3.0
@@ -11,6 +11,57 @@ height = 14.0
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dmtg"]
 radius = 4.0
 height = 16.0
+
+[sub_resource type="Animation" id="Animation_tb8q5"]
+resource_name = "shoot"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.965287, 0.104956, 0.277854, 1), Color(0.965287, 0.104956, 0.277854, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mi6e6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twxuq"]
+_data = {
+"RESET": SubResource("Animation_mi6e6"),
+"shoot": SubResource("Animation_tb8q5")
+}
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_q6a1q")
@@ -30,8 +81,15 @@ shape = SubResource("CapsuleShape2D_xh4ob")
 one_shot = true
 
 [node name="HitBoxArea" type="Area2D" parent="."]
+collision_layer = 3
 
 [node name="HitBoxShape" type="CollisionShape2D" parent="HitBoxArea"]
 shape = SubResource("CapsuleShape2D_0dmtg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_twxuq")
+}
+next/shoot = &"RESET"
 
 [connection signal="body_entered" from="HitBoxArea" to="." method="_on_hit_box_area_body_entered"]

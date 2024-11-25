@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://vourc15g0k5q"]
 
-[ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
+[ext_resource type="Texture2D" uid="uid://c2wcqq3k1afla" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_ledpb"]
 [ext_resource type="Script" path="res://Scripts/tile_map_layer_plus.gd" id="2_xifi4"]
 [ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy.tscn" id="3_8a1ja"]
@@ -505,6 +505,7 @@ script = ExtResource("2_xifi4")
 
 [node name="Player" parent="." instance=ExtResource("2_ledpb")]
 position = Vector2(94, 227)
+collision_layer = 3
 jump_speed = -300.0
 
 [node name="Camera2D" type="Camera2D" parent="."]

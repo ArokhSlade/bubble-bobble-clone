@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://nh5mbkqexrpf"]
+[gd_scene load_steps=5 format=3 uid="uid://nh5mbkqexrpf"]
 
 [ext_resource type="Script" path="res://Scripts/floating_bubble.gd" id="1_n0biw"]
-[ext_resource type="Texture2D" uid="uid://cy6ijsrqsi80y" path="res://Assets/bubble bobble sprite sheets/14077_alpha.png" id="2_6awpy"]
+[ext_resource type="Texture2D" uid="uid://c8tywfkd6ufv6" path="res://Assets/bubble bobble sprite sheets/14077_alpha.png" id="2_6awpy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cnaap"]
 radius = 8.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdt56"]
+radius = 2.0
+height = 12.0
+
 [node name="FloatingBubble" type="CharacterBody2D"]
 script = ExtResource("1_n0biw")
+stomp_frames = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_6awpy")
@@ -17,7 +22,17 @@ region_rect = Rect2(7, 1072, 14, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_cnaap")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="StompArea" type="Area2D" parent="."]
+collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_cnaap")
+[node name="StompAreaShape" type="CollisionShape2D" parent="StompArea"]
+position = Vector2(0, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bdt56")
+
+[node name="StompTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="StompArea" to="." method="_on_stomp_area_body_entered"]
+[connection signal="body_exited" from="StompArea" to="." method="_on_stomp_area_body_exited"]
+[connection signal="timeout" from="StompTimer" to="." method="_on_stomp_timer_timeout"]

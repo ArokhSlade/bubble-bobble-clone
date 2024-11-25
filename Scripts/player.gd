@@ -48,7 +48,7 @@ func _physics_process(delta):
 	
 func request_shoot():
 	if $ReloadTimer.is_stopped():
-		shoot()
+		$AnimationPlayer.play("shoot")
 
 func shoot():
 	var new_bullet = projectile.instantiate() #todo how to pass concstructor arguments
@@ -83,6 +83,7 @@ func process_collisions():
 			var collision_angle = collision.get_angle()
 			#from below
 			if collision_angle <= PI / 3.0:
+				
 				print ("from_top")
 			#from side
 			elif collision_angle <= PI / 3.0 * 2.0:
