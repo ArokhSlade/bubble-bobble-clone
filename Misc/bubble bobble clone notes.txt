@@ -15,7 +15,7 @@ decide next move in regular intervals
 
 2024 11 25
 16:26-17:00
-pop bubbles by standing on them for very short time
+stomp: pop bubbles by standing on them for very short time
 17:00-17:24
 tried to fix the broken bubble bobble sprite sheet
 -> took too long, cancelled
@@ -23,3 +23,10 @@ tried to fix the broken bubble bobble sprite sheet
 implemented shoot via animation player:
 	timeframe where player has attack zone (teeth) in front
 	todo: implement the attack area and position it according to horizontal orientation
+
+19:50-21:16
+implemented :
+	-teeth hitbox open for short duration after shooting, 
+	 so bubbled enemies get eaten immediately
+	-teeth are one the front side of the player
+	

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=4 uid="uid://vourc15g0k5q"]
+[gd_scene load_steps=9 format=4 uid="uid://vourc15g0k5q"]
 
-[ext_resource type="Texture2D" uid="uid://c2wcqq3k1afla" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
+[ext_resource type="Script" path="res://Scripts/level.gd" id="1_ly5as"]
+[ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_ledpb"]
 [ext_resource type="Script" path="res://Scripts/tile_map_layer_plus.gd" id="2_xifi4"]
 [ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy.tscn" id="3_8a1ja"]
@@ -496,6 +497,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_waqjy")
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_ly5as")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
@@ -503,20 +505,18 @@ tile_map_data = PackedByteArray("AAAEAAAAAAAHAAYAAAAFAAAAAAAGAAIAAAAGAAAAAAAGAAI
 tile_set = SubResource("TileSet_nas60")
 script = ExtResource("2_xifi4")
 
-[node name="Player" parent="." instance=ExtResource("2_ledpb")]
-position = Vector2(94, 227)
-collision_layer = 3
-jump_speed = -300.0
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
 zoom = Vector2(2, 2)
 
-[node name="Enemy" parent="." instance=ExtResource("3_8a1ja")]
-position = Vector2(254, 82)
+[node name="Bubbles" type="Node2D" parent="."]
+unique_name_in_owner = true
 
 [node name="FloatingBubble" parent="." instance=ExtResource("5_32lm8")]
 position = Vector2(168, 223)
 
-[node name="Bubbles" type="Node2D" parent="."]
-unique_name_in_owner = true
+[node name="Enemy" parent="." instance=ExtResource("3_8a1ja")]
+position = Vector2(310, 84)
+
+[node name="Player" parent="." instance=ExtResource("2_ledpb")]
+position = Vector2(106, 224)

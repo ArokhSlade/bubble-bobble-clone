@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Scripts/player_bullet.gd" id="1_woi6e"]
 [ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_5uvay"]
-[ext_resource type="Texture2D" uid="uid://c8tywfkd6ufv6" path="res://Assets/bubble bobble sprite sheets/14077_alpha.png" id="3_iw0x5"]
+[ext_resource type="Texture2D" uid="uid://cy6ijsrqsi80y" path="res://Assets/bubble bobble sprite sheets/14077_alpha.png" id="3_iw0x5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7oi4"]
 size = Vector2(12, 14)
 
-[node name="PlayerProjectile" type="Node2D"]
+[node name="PlayerBullet" type="Node2D"]
 script = ExtResource("1_woi6e")
 floating_bubble_scene = ExtResource("2_5uvay")
 
@@ -17,6 +17,8 @@ region_enabled = true
 region_rect = Rect2(43, 1051, 12, 14)
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 25
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_v7oi4")

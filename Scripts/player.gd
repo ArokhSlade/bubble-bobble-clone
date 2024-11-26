@@ -10,6 +10,7 @@ const Direction = GlobalEnums.Direction
 @export var start_heading := Direction.RIGHT
 @onready var heading = start_heading
 @onready var sprite = $Sprite2D
+@onready var teeth = $TeethArea
 
 func get_width():
 	return $CollisionShape2D.shape.radius
@@ -24,12 +25,10 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+	
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = jump_speed
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		velocity.x = direction * speed
@@ -38,6 +37,7 @@ func _physics_process(delta):
 
 	heading = compute_new_heading()
 	update_sprite()
+	
 		
 	if Input.is_action_just_pressed("shoot"):
 		request_shoot()
@@ -54,11 +54,13 @@ func shoot():
 	var new_bullet = projectile.instantiate() #todo how to pass concstructor arguments
 	new_bullet.heading = GlobalEnums.horizontal(heading)
 	var spawn_position = global_position
-	spawn_position += GlobalEnums.as_vector2(heading) * (get_width() + new_bullet.get_width())
+	spawn_position += GlobalEnums.as_vector2(heading) * .5 * (get_width() + new_bullet.get_width())
 	new_bullet.global_position = spawn_position
 	%Bubbles.add_child(new_bullet)
 	
 	$ReloadTimer.start()
+	
+	show_teeth()
 
 func compute_new_heading() -> Direction:
 	var result : Direction
@@ -91,9 +93,28 @@ func process_collisions():
 			else: 
 				print ("from_below")
 				collider.pop()
-				
 
-func _on_hit_box_area_body_entered(body):
-	#TODO: may delete this
-	if (body.has_method("pop")):
-		pass
+
+func _on_teeth_area_body_entered(body):
+	if body.has_method("pop"):
+		body.pop()
+
+func show_teeth():
+	teeth.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	var teeth_relative_position = teeth.global_position - global_position
+	
+	if heading & Direction.LEFT:
+		teeth.global_position = global_position + -abs(teeth_relative_position)
+	else:
+		teeth.global_position = global_position + abs(teeth_relative_position)
+	teeth.visible = true
+
+func hide_teeth():
+	teeth.visible = false
+	teeth.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_animation_player_animation_finished(anim_name):	
+	if anim_name == "shoot":
+		hide_teeth()
