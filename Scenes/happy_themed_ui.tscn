@@ -1,22 +1,25 @@
 [gd_scene load_steps=3 format=3 uid="uid://dc0dtvd6cmn3t"]
 
 [ext_resource type="Theme" uid="uid://bryiptyeqwsdc" path="res://Resources/my_happy_theme.tres" id="1_fo1cq"]
-
-[sub_resource type="Theme" id="Theme_yyyk5"]
+[ext_resource type="Script" path="res://Scripts/UI_Test/ui_test_button.gd" id="2_4oukx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = SubResource("Theme_yyyk5")
+theme = ExtResource("1_fo1cq")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0
-offset_right = 173.0
-offset_bottom = 99.0
+offset_left = 254.0
+offset_top = 180.0
+offset_right = 427.0
+offset_bottom = 279.0
 
 [node name="Button" type="Button" parent="CenterContainer"]
 layout_mode = 2
 theme = ExtResource("1_fo1cq")
+theme_type_variation = &"MyButton"
 text = "click me"
+script = ExtResource("2_4oukx")

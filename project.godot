@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 GlobalEnums="*res://Scripts/global_enums.gd"
 
+[gui]
+
+theme/custom="res://Resources/my_happy_theme.tres"
+
 [input]
 
 shoot={
