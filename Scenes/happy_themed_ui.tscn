@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc0dtvd6cmn3t"]
+
+[ext_resource type="Theme" uid="uid://bryiptyeqwsdc" path="res://Resources/my_happy_theme.tres" id="1_fo1cq"]
+
+[sub_resource type="Theme" id="Theme_yyyk5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_yyyk5")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 173.0
+offset_bottom = 99.0
+
+[node name="Button" type="Button" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_fo1cq")
+text = "click me"
