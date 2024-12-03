@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://cusktx2hkasft"]
+
+[ext_resource type="Script" path="res://Scripts/new_resource.gd" id="1_0gtsd"]
+
+[resource]
+script = ExtResource("1_0gtsd")
+x = 3
+my_dict = {
+"first": 1,
+"second": 2
+}

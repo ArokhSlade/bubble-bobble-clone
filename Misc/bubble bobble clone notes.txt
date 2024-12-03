@@ -30,3 +30,61 @@ implemented :
 	 so bubbled enemies get eaten immediately
 	-teeth are one the front side of the player
 	
+
+2024 11 30
+16:30-16:45 study ai behavior
+theory:
+	set spawn points:
+	all monsters start floating down at beginning of level at the same time, same speed.
+	their start positions may be mid air
+	they are stuck in idle animation (immune to gravity) until each mob has arrived.
+	as soon as all mobs have arrived, their movement patterns, and gravity kick in.
+	
+	monsters start positions are grid aligned.
+	the grid is half boxes (or small boxes).
+	i.e. they either spawn on the boundary of two small boxes
+	(or in the middle of a large box, or one the boundary between two large boxes)
+
+
+17:40-18:40
+learn how to make a custom node, where i can give a drop down to select enum
+and then have the object render a different image in game,
+and also do the same in the editor
+for this, i learned how to define a custom setter for properties in godot
+
+-> _redraw()
+-> queue_redraw()
+-> call queue_redraw within the setter
+-> @tool # have to reload project
+
+
+18:40-20:20
+learned and practiced creating 
+custom Resource, with script attached and using it in another scripted scene
+learned about enums being dictionaries
+and dictionaries being variable-typed
+
+https://docs.godotengine.org/en/stable/classes/class_dictionary.html
+https://docs.godotengine.org/en/stable/tutorials/scripting/resources.html#creating-your-own-resources
+https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#enums
+
+https://www.reddit.com/r/godot/comments/186sgub/sooo_whats_the_point_of_custom_resources_exactly/
+https://forum.godotengine.org/t/static-typing-of-exported-dictionary/39970/4
+
+https://www.youtube.com/watch?v=vzRZjM9MTGw
+https://www.youtube.com/watch?v=zbAKzM-Odb4
+https://www.youtube.com/watch?v=s-BqbdY5dZM
+
+22:20-23:30
+tap into editor plugin development fundamentals
+https://docs.godotengine.org/en/3.1/tutorials/plugins/editor/making_plugins.html#checking-the-results
+
+
+2024 12 01
+listened to talk: history of godot
+listened to talk: intro to godot tool programming
+
+12:30-14:00
+more editor tutorials:
+ inspector plugins:
+ https://docs.godotengine.org/en/stable/tutorials/plugins/editor/inspector_plugins.html
