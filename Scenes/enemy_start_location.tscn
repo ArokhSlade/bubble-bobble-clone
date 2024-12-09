@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwnchnrpki3c5"]
+[gd_scene load_steps=2 format=3 uid="uid://cwnchnrpki3c5"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_start_location.gd" id="1_xmbwu"]
-[ext_resource type="Texture2D" uid="uid://biyjunh7maktj" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_007.png" id="2_fd1nf"]
-[ext_resource type="Texture2D" uid="uid://cplkou1s6aydk" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_008.png" id="3_hqkda"]
 
 [node name="EnemyStartLocation" type="Marker2D"]
-gizmo_extents = 50.0
 script = ExtResource("1_xmbwu")
-textures = Array[Texture2D]([ExtResource("2_fd1nf"), ExtResource("3_hqkda")])
+enemy_scene = null

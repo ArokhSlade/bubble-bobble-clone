@@ -88,3 +88,8 @@ listened to talk: intro to godot tool programming
 more editor tutorials:
  inspector plugins:
  https://docs.godotengine.org/en/stable/tutorials/plugins/editor/inspector_plugins.html
+
+
+TODO
+- BUG (2024 12 09): one bubble can swallow two enemies
+- BUG (2024 12 09): bubbled of hit enemies spawn at odd place

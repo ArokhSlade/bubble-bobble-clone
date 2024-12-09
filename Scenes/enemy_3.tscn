@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://f13kbmlln1i7"]
+
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_laum5"]
+[ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_44yii"]
+[ext_resource type="Texture2D" uid="uid://b2y5nnxcrm7em" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_012.png" id="3_qwcr7"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qojwd"]
+radius = 4.0
+height = 16.0
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("1_laum5")
+FloatingBubble = ExtResource("2_44yii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qojwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 0, 0, 1)
+position = Vector2(0, -4)
+texture = ExtResource("3_qwcr7")
+hframes = 4
+vframes = 4
+frame = 9
+
+[node name="Label" type="Label" parent="."]
+offset_left = -9.0
+offset_top = -25.0
+offset_right = 10.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 9
+text = "NPC"

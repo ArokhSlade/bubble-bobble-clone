@@ -1,34 +1,51 @@
+@tool
 extends Marker2D
 
-@export_category("my first export category")
 
-const my_resurce : Resource = preload("res://Resources/new_resource.tres")
 
-@export var textures : Array[Texture2D]
+var enemy_instance
 
-enum MyEnum{NONE = 0, CHOMPER = 10, GHOST = 100}
+func _ready():
+	if enemy && enemy.enemy_scene: 
+		enemy_instance = enemy.enemy_scene.instantiate()
+		add_child(enemy_instance)
+	else : 
+		push_warning("cannot spawn enemy because no enemy was selected")
 
-@export var my_enum : MyEnum:
-	set(value):
-		my_enum = value
-		update_texture_index()
-		queue_redraw()
 
-var texture_index : int #internal, controlled via my_enum and get_texture_index()
 
-func update_texture_index():
-	texture_index = get_texture_index()
-
-func get_texture_index() -> int:
-	var result = 0
-	MyEnum.find_key(my_enum)
+@export var enemy : EnemyChoice :
+	set(value):		
+		enemy = value
+		if enemy:
+			print_rich("[color=green]setting scene %s to %s[/color]" %[enemy.enemy_scene, value.enemy_scene])
+			set("enemy_scene", value.enemy_scene)
+			notify_property_list_changed()
+			queue_redraw()
+		
 	
-	return result
+func _get_property_list():
+	return([{
+		"name" : "enemy_scene",
+		"type" : TYPE_OBJECT,
+		"tye_hint" : PROPERTY_HINT_RESOURCE_TYPE,
+		"hint_string" : "PackedScene",
+		"usage" : PROPERTY_USAGE_DEFAULT #| PROPERTY_USAGE_READ_ONLY #if it's read-only we cannot change enemy by drag-and-drop
+	}])
 	
-func _draw():	
-	var texture_index = get_texture_index()
-	if texture_index == MyEnum.NONE:
-		return
-				
-	var sprite_dim = 24	
-	draw_texture_rect_region(textures[texture_index], Rect2(Vector2(),Vector2(sprite_dim,sprite_dim)), Rect2(Vector2(),Vector2(sprite_dim,sprite_dim)))
+func _get(property):
+	if property == "enemy_scene":
+		if enemy:
+			return enemy.enemy_scene
+
+func _set(property, value):
+	if property == "enemy_scene":
+		var index = GlobalEnemyList.entities.find(value)
+		if index >= 0:
+			if enemy:
+				enemy.enemy_scene = value
+				enemy.scene_index = index
+				notify_property_list_changed()
+				queue_redraw()
+		return true
+	return false

@@ -1,13 +1,18 @@
-[gd_scene load_steps=11 format=4 uid="uid://vourc15g0k5q"]
+[gd_scene load_steps=20 format=4 uid="uid://vourc15g0k5q"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ly5as"]
 [ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_ledpb"]
 [ext_resource type="Script" path="res://Scripts/tile_map_layer_plus.gd" id="2_xifi4"]
-[ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy.tscn" id="3_8a1ja"]
+[ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy_1.tscn" id="3_8a1ja"]
 [ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="5_32lm8"]
 [ext_resource type="PackedScene" uid="uid://dc0dtvd6cmn3t" path="res://Scenes/happy_themed_ui.tscn" id="7_o53r2"]
 [ext_resource type="PackedScene" uid="uid://cwnchnrpki3c5" path="res://Scenes/enemy_start_location.tscn" id="8_vsscu"]
+[ext_resource type="Script" path="res://addons/enemy_picker_plugin_1/enemy_choice.gd" id="9_an0ot"]
+[ext_resource type="PackedScene" uid="uid://c6iug1710xlai" path="res://Scenes/enemy_2.tscn" id="10_6yloi"]
+[ext_resource type="PackedScene" uid="uid://f13kbmlln1i7" path="res://Scenes/enemy_3.tscn" id="10_mfxvp"]
+[ext_resource type="PackedScene" uid="uid://ds11domd8q3n5" path="res://Scenes/simple_enemy_spawner.tscn" id="12_dnvga"]
+[ext_resource type="PackedScene" uid="uid://7ufsokbx1m46" path="res://Scenes/extra_simple_spawner.tscn" id="13_grpm8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]
 texture = ExtResource("1_nitc3")
@@ -498,14 +503,27 @@ texture = ExtResource("1_nitc3")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_waqjy")
 
+[sub_resource type="Resource" id="Resource_kyptv"]
+script = ExtResource("9_an0ot")
+
+[sub_resource type="Resource" id="Resource_hxk2e"]
+script = ExtResource("9_an0ot")
+
+[sub_resource type="Resource" id="Resource_ghphr"]
+script = ExtResource("9_an0ot")
+
+[sub_resource type="Resource" id="Resource_pi50o"]
+script = ExtResource("9_an0ot")
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ly5as")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAEAAAAAAAHAAYAAAAFAAAAAAAGAAIAAAAGAAAAAAAGAAIAAAAHAAAAAAAGAAIAAAAIAAAAAAAGAAIAAAAJAAAAAAAGAAIAAAAKAAAAAAAGAAIAAAALAAAAAAAGAAIAAAAMAAAAAAAGAAIAAAANAAAAAAAGAAIAAAAEAAEAAAAHAAYAAAAEAAIAAAAHAAYAAAAEAAMAAAAHAAYAAAAEAAQAAAAHAAYAAAAEAAUAAAAHAAYAAAAEAAYAAAAHAAYAAAAEAAcAAAAHAAYAAAAEAAgAAAAHAAYAAAAEAAkAAAAHAAYAAAAEAAoAAAAHAAYAAAAEAAsAAAAHAAYAAAAEAAwAAAAHAAYAAAADAAAAAAAHAAYAAAADAAEAAAAHAAYAAAADAAIAAAAHAAYAAAADAAMAAAAHAAYAAAADAAQAAAAHAAYAAAADAAUAAAAHAAYAAAADAAYAAAAHAAYAAAADAAcAAAAHAAYAAAADAAgAAAAHAAYAAAADAAkAAAAHAAYAAAADAAoAAAAHAAYAAAADAAsAAAAHAAYAAAADAAwAAAAHAAYAAAAFAAYAAAAGAAIAAAAGAAYAAAAGAAIAAAAFAAkAAAAGAAIAAAAGAAkAAAAGAAIAAAAFAAwAAAAGAAIAAAAGAAwAAAAGAAIAAAAEAA0AAAAHAAYAAAAEAA4AAAAHAAYAAAAEAA8AAAAHAAYAAAAFAA8AAAAGAAIAAAAGAA8AAAAGAAIAAAADAA8AAAAHAAYAAAADAA4AAAAHAAYAAAADAA0AAAAHAAYAAAAHAA8AAAAGAAIAAAAIAA8AAAAGAAIAAAAJAA8AAAAGAAIAAAAKAA8AAAAGAAIAAAALAA8AAAAGAAIAAAAMAA8AAAAGAAIAAAANAA8AAAAGAAIAAAANAAwAAAAGAAIAAAAMAAwAAAAGAAIAAAALAAwAAAAGAAIAAAAKAAwAAAAGAAIAAAAJAAwAAAAGAAIAAAAJAAkAAAAGAAIAAAAKAAkAAAAGAAIAAAALAAkAAAAGAAIAAAAMAAkAAAAGAAIAAAANAAkAAAAGAAIAAAAJAAYAAAAGAAIAAAAKAAYAAAAGAAIAAAALAAYAAAAGAAIAAAAMAAYAAAAGAAIAAAANAAYAAAAGAAIAAAASAAAAAAAGAAIAAAASAAYAAAAGAAIAAAASAAkAAAAGAAIAAAASAAwAAAAGAAIAAAASAA8AAAAGAAIAAAATAAAAAAAGAAIAAAATAAYAAAAGAAIAAAATAAkAAAAGAAIAAAATAAwAAAAGAAIAAAATAA8AAAAGAAIAAAAUAAAAAAAGAAIAAAAUAAYAAAAGAAIAAAAUAAkAAAAGAAIAAAAUAAwAAAAGAAIAAAAUAA8AAAAGAAIAAAAVAAAAAAAGAAIAAAAVAAYAAAAGAAIAAAAVAAkAAAAGAAIAAAAVAAwAAAAGAAIAAAAVAA8AAAAGAAIAAAAWAAAAAAAGAAIAAAAWAA8AAAAGAAIAAAAXAAAAAAAGAAIAAAAXAA8AAAAGAAIAAAAYAAAAAAAGAAIAAAAYAAYAAAAGAAIAAAAYAAkAAAAGAAIAAAAYAAwAAAAGAAIAAAAYAA8AAAAGAAIAAAAZAAAAAAAGAAIAAAAZAAYAAAAGAAIAAAAZAAkAAAAGAAIAAAAZAAwAAAAGAAIAAAAZAA8AAAAGAAIAAAAaAAAAAAAHAAYAAAAaAAEAAAAHAAYAAAAaAAIAAAAHAAYAAAAaAAMAAAAHAAYAAAAaAAQAAAAHAAYAAAAaAAUAAAAHAAYAAAAaAAYAAAAHAAYAAAAaAAcAAAAHAAYAAAAaAAgAAAAHAAYAAAAaAAkAAAAHAAYAAAAaAAoAAAAHAAYAAAAaAAsAAAAHAAYAAAAaAAwAAAAHAAYAAAAaAA0AAAAHAAYAAAAaAA4AAAAHAAYAAAAaAA8AAAAHAAYAAAAbAAAAAAAHAAYAAAAbAAEAAAAHAAYAAAAbAAIAAAAHAAYAAAAbAAMAAAAHAAYAAAAbAAQAAAAHAAYAAAAbAAUAAAAHAAYAAAAbAAYAAAAHAAYAAAAbAAcAAAAHAAYAAAAbAAgAAAAHAAYAAAAbAAkAAAAHAAYAAAAbAAoAAAAHAAYAAAAbAAsAAAAHAAYAAAAbAAwAAAAHAAYAAAAbAA0AAAAHAAYAAAAbAA4AAAAHAAYAAAAbAA8AAAAHAAYAAAAOAAAAAAAGAAIAAAAPAAAAAAAGAAIAAAAQAAAAAAAGAAIAAAARAAAAAAAGAAIAAAAOAAYAAAAGAAIAAAAPAAYAAAAGAAIAAAAQAAYAAAAGAAIAAAARAAYAAAAGAAIAAAAOAAkAAAAGAAIAAAAPAAkAAAAGAAIAAAAQAAkAAAAGAAIAAAARAAkAAAAGAAIAAAAOAAwAAAAGAAIAAAAPAAwAAAAGAAIAAAAQAAwAAAAGAAIAAAARAAwAAAAGAAIAAAAOAA8AAAAGAAIAAAAPAA8AAAAGAAIAAAAQAA8AAAAGAAIAAAARAA8AAAAGAAIAAAA=")
+tile_map_data = PackedByteArray("AAAEAAAAAAAHAAYAAAAFAAAAAAAGAAIAAAAGAAAAAAAGAAIAAAAHAAAAAAAGAAIAAAAIAAAAAAAGAAIAAAAJAAAAAAAGAAIAAAAKAAAAAAAGAAIAAAALAAAAAAAGAAIAAAAMAAAAAAAGAAIAAAANAAAAAAAGAAIAAAAEAAEAAAAHAAYAAAAEAAIAAAAHAAYAAAAEAAMAAAAHAAYAAAAEAAQAAAAHAAYAAAAEAAUAAAAHAAYAAAAEAAYAAAAHAAYAAAAEAAcAAAAHAAYAAAAEAAgAAAAHAAYAAAAEAAkAAAAHAAYAAAAEAAoAAAAHAAYAAAAEAAsAAAAHAAYAAAAEAAwAAAAHAAYAAAADAAAAAAAHAAYAAAADAAEAAAAHAAYAAAADAAIAAAAHAAYAAAADAAMAAAAHAAYAAAADAAQAAAAHAAYAAAADAAUAAAAHAAYAAAADAAYAAAAHAAYAAAADAAcAAAAHAAYAAAADAAgAAAAHAAYAAAADAAkAAAAHAAYAAAADAAoAAAAHAAYAAAADAAsAAAAHAAYAAAADAAwAAAAHAAYAAAAFAAYAAAAGAAIAAAAGAAYAAAAGAAIAAAAFAAkAAAAGAAIAAAAGAAkAAAAGAAIAAAAFAAwAAAAGAAIAAAAGAAwAAAAGAAIAAAAEAA0AAAAHAAYAAAAEAA4AAAAHAAYAAAAEAA8AAAAHAAYAAAAFAA8AAAAGAAIAAAAGAA8AAAAGAAIAAAADAA8AAAAHAAYAAAADAA4AAAAHAAYAAAADAA0AAAAHAAYAAAAHAA8AAAAGAAIAAAAIAA8AAAAGAAIAAAAJAA8AAAAGAAIAAAAKAA8AAAAGAAIAAAALAA8AAAAGAAIAAAAMAA8AAAAGAAIAAAANAA8AAAAGAAIAAAANAAwAAAAGAAIAAAAMAAwAAAAGAAIAAAALAAwAAAAGAAIAAAAKAAwAAAAGAAIAAAAJAAwAAAAGAAIAAAAJAAkAAAAGAAIAAAAKAAkAAAAGAAIAAAALAAkAAAAGAAIAAAAMAAkAAAAGAAIAAAANAAkAAAAGAAIAAAAJAAYAAAAGAAIAAAAKAAYAAAAGAAIAAAALAAYAAAAGAAIAAAAMAAYAAAAGAAIAAAANAAYAAAAGAAIAAAASAAAAAAAGAAIAAAASAAYAAAAGAAIAAAASAAkAAAAGAAIAAAASAAwAAAAGAAIAAAASAA8AAAAGAAIAAAATAAAAAAAGAAIAAAATAAYAAAAGAAIAAAATAAkAAAAGAAIAAAATAAwAAAAGAAIAAAATAA8AAAAGAAIAAAAUAAAAAAAGAAIAAAAUAAYAAAAGAAIAAAAUAAkAAAAGAAIAAAAUAAwAAAAGAAIAAAAUAA8AAAAGAAIAAAAVAAAAAAAGAAIAAAAVAAYAAAAGAAIAAAAVAAkAAAAGAAIAAAAVAAwAAAAGAAIAAAAVAA8AAAAGAAIAAAAWAAAAAAAGAAIAAAAWAA8AAAAGAAIAAAAXAAAAAAAGAAIAAAAXAA8AAAAGAAIAAAAYAAAAAAAGAAIAAAAYAAYAAAAGAAIAAAAYAAkAAAAGAAIAAAAYAAwAAAAGAAIAAAAYAA8AAAAGAAIAAAAZAAAAAAAGAAIAAAAZAAYAAAAGAAIAAAAZAAkAAAAGAAIAAAAZAAwAAAAGAAIAAAAZAA8AAAAGAAIAAAAaAAAAAAAHAAYAAAAaAAEAAAAHAAYAAAAaAAIAAAAHAAYAAAAaAAMAAAAHAAYAAAAaAAQAAAAHAAYAAAAaAAUAAAAHAAYAAAAaAAYAAAAHAAYAAAAaAAcAAAAHAAYAAAAaAAgAAAAHAAYAAAAaAAkAAAAHAAYAAAAaAAoAAAAHAAYAAAAaAAsAAAAHAAYAAAAaAAwAAAAHAAYAAAAaAA0AAAAHAAYAAAAaAA4AAAAHAAYAAAAaAA8AAAAHAAYAAAAbAAAAAAAHAAYAAAAbAAEAAAAHAAYAAAAbAAIAAAAHAAYAAAAbAAMAAAAHAAYAAAAbAAQAAAAHAAYAAAAbAAUAAAAHAAYAAAAbAAYAAAAHAAYAAAAbAAcAAAAHAAYAAAAbAAgAAAAHAAYAAAAbAAkAAAAHAAYAAAAbAAoAAAAHAAYAAAAbAAsAAAAHAAYAAAAbAAwAAAAHAAYAAAAbAA0AAAAHAAYAAAAbAA4AAAAHAAYAAAAbAA8AAAAHAAYAAAAOAAAAAAAGAAIAAAAPAAAAAAAGAAIAAAAQAAAAAAAGAAIAAAARAAAAAAAGAAIAAAAOAAYAAAAGAAIAAAAPAAYAAAAGAAIAAAAQAAYAAAAGAAIAAAARAAYAAAAGAAIAAAAOAAkAAAAGAAIAAAAPAAkAAAAGAAIAAAAQAAkAAAAGAAIAAAARAAkAAAAGAAIAAAAOAAwAAAAGAAIAAAAPAAwAAAAGAAIAAAAQAAwAAAAGAAIAAAARAAwAAAAGAAIAAAAOAA8AAAAGAAIAAAAPAA8AAAAGAAIAAAAQAA8AAAAGAAIAAAARAA8AAAAGAAIAAAAJAAUAAAAHAAYAAAAVAAUAAAAHAAYAAAAJAAgAAAAHAAYAAAAVAAgAAAAHAAYAAAAJAAsAAAAHAAYAAAAVAAsAAAAHAAYAAAAJAA4AAAAHAAYAAAAVAA4AAAAHAAYAAAA=")
 tile_set = SubResource("TileSet_nas60")
 script = ExtResource("2_xifi4")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 162)
@@ -518,22 +536,96 @@ unique_name_in_owner = true
 position = Vector2(168, 223)
 
 [node name="Enemy" parent="." instance=ExtResource("3_8a1ja")]
+process_mode = 4
+visible = false
 position = Vector2(256, 88)
 
 [node name="Player" parent="." instance=ExtResource("2_ledpb")]
-position = Vector2(168, 224)
+position = Vector2(104, 224)
 
 [node name="Happy UI Test" parent="." instance=ExtResource("7_o53r2")]
+visible = false
 offset_left = 171.0
 offset_top = 69.0
 offset_right = 211.0
 offset_bottom = 109.0
 pivot_offset = Vector2(365, 211)
 
-[node name="EnemyStartLocation" parent="." instance=ExtResource("8_vsscu")]
-position = Vector2(320, 64)
-gizmo_extents = 22.7
-textures = Array[Texture2D]([])
+[node name="ComplicatedSpawners" type="Node2D" parent="."]
 
-[node name="EnemyStartLocation2" parent="." instance=ExtResource("8_vsscu")]
-position = Vector2(296, 72)
+[node name="EnemyStartLocation" parent="ComplicatedSpawners" instance=ExtResource("8_vsscu")]
+position = Vector2(186, 82)
+enemy = SubResource("Resource_kyptv")
+
+[node name="EnemyStartLocation2" parent="ComplicatedSpawners" instance=ExtResource("8_vsscu")]
+position = Vector2(210, 82)
+enemy = SubResource("Resource_hxk2e")
+enemy_scene = ExtResource("3_8a1ja")
+
+[node name="EnemyStartLocation3" parent="ComplicatedSpawners" instance=ExtResource("8_vsscu")]
+position = Vector2(242, 82)
+enemy = SubResource("Resource_ghphr")
+enemy_scene = ExtResource("10_6yloi")
+
+[node name="EnemyStartLocation4" parent="ComplicatedSpawners" instance=ExtResource("8_vsscu")]
+position = Vector2(274, 82)
+enemy = SubResource("Resource_pi50o")
+enemy_scene = ExtResource("10_mfxvp")
+
+[node name="SimpleSpawners" type="Node2D" parent="."]
+
+[node name="SimpleEnemySpawner" parent="SimpleSpawners" instance=ExtResource("12_dnvga")]
+position = Vector2(194, 130)
+
+[node name="SimpleEnemySpawner2" parent="SimpleSpawners" instance=ExtResource("12_dnvga")]
+position = Vector2(226, 130)
+enemy_type = 10
+
+[node name="SimpleEnemySpawner3" parent="SimpleSpawners" instance=ExtResource("12_dnvga")]
+position = Vector2(258, 130)
+enemy_type = 100
+
+[node name="SimpleEnemySpawner4" parent="SimpleSpawners" instance=ExtResource("12_dnvga")]
+position = Vector2(290, 130)
+enemy_type = 1000
+
+[node name="ExtraSimpleSpawners" type="Node2D" parent="."]
+
+[node name="ExtraSimpleSpawner" parent="ExtraSimpleSpawners" instance=ExtResource("13_grpm8")]
+position = Vector2(202, 178)
+
+[node name="ExtraSimpleSpawner2" parent="ExtraSimpleSpawners" instance=ExtResource("13_grpm8")]
+position = Vector2(234, 178)
+enemy_scene = ExtResource("3_8a1ja")
+
+[node name="ExtraSimpleSpawner3" parent="ExtraSimpleSpawners" instance=ExtResource("13_grpm8")]
+position = Vector2(266, 178)
+enemy_scene = ExtResource("3_8a1ja")
+
+[node name="ExtraSimpleSpawner4" parent="ExtraSimpleSpawners" instance=ExtResource("13_grpm8")]
+position = Vector2(298, 178)
+enemy_scene = ExtResource("10_mfxvp")
+
+[node name="GigaSimpleSpawners" type="Node2D" parent="."]
+
+[node name="SpawnLocation" type="Node2D" parent="GigaSimpleSpawners"]
+position = Vector2(216, 232)
+metadata/_edit_group_ = true
+
+[node name="SpawnLocation2" type="Node2D" parent="GigaSimpleSpawners"]
+position = Vector2(248, 232)
+metadata/_edit_group_ = true
+
+[node name="Enemy" parent="GigaSimpleSpawners/SpawnLocation2" instance=ExtResource("3_8a1ja")]
+
+[node name="SpawnLocation3" type="Node2D" parent="GigaSimpleSpawners"]
+position = Vector2(280, 232)
+metadata/_edit_group_ = true
+
+[node name="Enemy" parent="GigaSimpleSpawners/SpawnLocation3" instance=ExtResource("10_6yloi")]
+
+[node name="SpawnLocation4" type="Node2D" parent="GigaSimpleSpawners"]
+position = Vector2(312, 232)
+metadata/_edit_group_ = true
+
+[node name="Enemy" parent="GigaSimpleSpawners/SpawnLocation4" instance=ExtResource("10_mfxvp")]

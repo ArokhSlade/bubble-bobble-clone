@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-#@onready var tiles : TileMapLayer = get_tree().root.find_child("TileMapLayer",true,false)
-@onready var tiles : TileMapLayerPlus = %TileMapLayer
+@onready var tiles : TileMapLayer = get_tree().root.find_child("TileMapLayer",true,false)
+#@onready var tiles : TileMapLayerPlus = %TileMapLayer #only works on the same level in the hierarchy
 
 @export var speed = 120.0
 @export var jump_speed = -210.0
