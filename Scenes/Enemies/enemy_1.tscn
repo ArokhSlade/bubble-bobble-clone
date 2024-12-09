@@ -1,25 +1,25 @@
 [gd_scene load_steps=5 format=3 uid="uid://bxmh1h5mcr1yt"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_au1b5"]
-[ext_resource type="Texture2D" uid="uid://dkjwehvr7es2t" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_011.png" id="1_ib8tm"]
-[ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_bk60i"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_b350w"]
+[ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_g5n84"]
+[ext_resource type="Texture2D" uid="uid://dkjwehvr7es2t" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_011.png" id="3_64k4s"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qojwd"]
 radius = 4.0
 height = 16.0
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="BasicBob" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 31
-script = ExtResource("1_au1b5")
-FloatingBubble = ExtResource("2_bk60i")
+script = ExtResource("1_b350w")
+FloatingBubble = ExtResource("2_g5n84")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qojwd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("1_ib8tm")
+texture = ExtResource("3_64k4s")
 hframes = 4
 vframes = 4
 frame = 9

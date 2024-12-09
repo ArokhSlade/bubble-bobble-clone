@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_hp01a"]
 [ext_resource type="PackedScene" uid="uid://cgcpvlrud1nhe" path="res://Scenes/player.tscn" id="2_8fwap"]
-[ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/enemy_1.tscn" id="3_klgyy"]
+[ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/Enemies/enemy_1.tscn" id="3_klgyy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]
 texture = ExtResource("1_hp01a")

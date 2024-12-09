@@ -10,9 +10,9 @@ enum EnemyType {
 }
 
 static var available_enemy_types : Array[PackedScene] = [
-	preload("res://Scenes/enemy_1.tscn"),
-	preload("res://Scenes/enemy_2.tscn"),
-	preload("res://Scenes/enemy_3.tscn")
+	preload("res://Scenes/Enemies/enemy_1.tscn"),
+	preload("res://Scenes/Enemies/enemy_2.tscn"),
+	preload("res://Scenes/Enemies/enemy_3.tscn")
 ]
 
 const INVALID_INDEX : int = -1

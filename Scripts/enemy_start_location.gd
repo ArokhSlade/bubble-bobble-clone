@@ -6,13 +6,15 @@ extends Marker2D
 var enemy_instance
 
 func _ready():
-	if enemy && enemy.enemy_scene: 
+	update_instance()
+
+func update_instance():
+	if enemy_instance!=null && !enemy_instance.is_queued_for_deletion(): 		
+		enemy_instance.queue_free()
+		enemy_instance = null
+	if enemy && enemy.enemy_scene != null:
 		enemy_instance = enemy.enemy_scene.instantiate()
 		add_child(enemy_instance)
-	else : 
-		push_warning("cannot spawn enemy because no enemy was selected")
-
-
 
 @export var enemy : EnemyChoice :
 	set(value):		
@@ -20,8 +22,9 @@ func _ready():
 		if enemy:
 			print_rich("[color=green]setting scene %s to %s[/color]" %[enemy.enemy_scene, value.enemy_scene])
 			set("enemy_scene", value.enemy_scene)
-			notify_property_list_changed()
-			queue_redraw()
+			update_instance()
+			notify_property_list_changed() #TODO: check if necessary
+			queue_redraw() #TODO: check if necessary
 		
 	
 func _get_property_list():
@@ -45,7 +48,7 @@ func _set(property, value):
 			if enemy:
 				enemy.enemy_scene = value
 				enemy.scene_index = index
-				notify_property_list_changed()
-				queue_redraw()
+				notify_property_list_changed() #TODO: check if necessary
+				queue_redraw() #TODO: check if necessary
 		return true
 	return false

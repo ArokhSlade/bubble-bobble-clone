@@ -93,3 +93,4 @@ more editor tutorials:
 TODO
 - BUG (2024 12 09): one bubble can swallow two enemies
 - BUG (2024 12 09): bubbled of hit enemies spawn at odd place
+- BUG (2024 12 09): simple version doesn't delete old enemy instance, sometimes
