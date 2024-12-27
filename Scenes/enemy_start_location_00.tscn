@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://q78mconb68ud"]
+[gd_scene load_steps=2 format=3 uid="uid://gmbb224ad0ev"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_start_location_00.gd" id="1_502kq"]
 
