@@ -10,7 +10,7 @@ extends CharacterBody2D
 const Direction = GlobalEnums.Direction
 const State = GlobalEnums.EnemyState
 
-@onready var state : State = State.PRE_GAME
+@onready var state : GlobalEnums.EnemyState = State.PRE_GAME
 
 var heading : Direction = Direction.RIGHT
 var is_jumping = false
@@ -20,6 +20,9 @@ var is_jumping = false
 
 var LOWER_HALF_HEIGHT = 10 # TODO
 var sink_speed = 50
+
+func get_state() :
+	return state
 
 func _ready():
 	global_position.y = 0 - LOWER_HALF_HEIGHT

@@ -21,7 +21,7 @@ GlobalEnums="*res://Scripts/global_enums.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/enemy_picker_plugin_1/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui]
 

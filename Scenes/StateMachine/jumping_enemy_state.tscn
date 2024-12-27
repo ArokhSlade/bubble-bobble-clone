@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ow80l8gvy1h"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/jumping_enemy_state.gd" id="1_bpudi"]
+
+[node name="JumpingEnemyState" type="Node"]
+script = ExtResource("1_bpudi")

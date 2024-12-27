@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://vourc15g0k5q"]
+[gd_scene load_steps=10 format=4 uid="uid://vourc15g0k5q"]
 
 [ext_resource type="Script" path="res://Scripts/level.gd" id="1_ly5as"]
 [ext_resource type="Texture2D" uid="uid://4qxse4i86l8x" path="res://Assets/Tileset-Heros_Journey-Moon_Graveyard-Final/Tiles.png" id="1_nitc3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/tile_map_layer_plus.gd" id="2_xifi4"]
 [ext_resource type="PackedScene" uid="uid://bxmh1h5mcr1yt" path="res://Scenes/Enemies/enemy_1.tscn" id="3_8a1ja"]
 [ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="5_32lm8"]
+[ext_resource type="PackedScene" uid="uid://dv0p7bajrsvwb" path="res://Scenes/player_2.tscn" id="7_dxt56"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]
 texture = ExtResource("1_nitc3")
@@ -523,3 +524,6 @@ position = Vector2(192, 72)
 
 [node name="BasicBob2" parent="." instance=ExtResource("3_8a1ja")]
 position = Vector2(312, 128)
+
+[node name="Player2" parent="." instance=ExtResource("7_dxt56")]
+position = Vector2(320, 72)

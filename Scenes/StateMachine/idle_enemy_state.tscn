@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://crcokjw5q64fb"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/idle_enemy_state.gd" id="1_iusli"]
+
+[node name="IdleEnemyState" type="Node"]
+script = ExtResource("1_iusli")

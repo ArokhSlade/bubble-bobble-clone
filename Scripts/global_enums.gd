@@ -5,6 +5,7 @@ enum EnemyState {
 	NONE,
 	PRE_GAME,
 	ROAMING,
+	JUMPING,
 	DEAD
 }
 

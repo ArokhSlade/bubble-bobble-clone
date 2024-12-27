@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjccks5pa0th6"]
+
+[ext_resource type="Texture2D" uid="uid://dhck0rqwdx6db" path="res://icon.svg" id="1_a3lpc"]
+[ext_resource type="PackedScene" uid="uid://dv0p7bajrsvwb" path="res://Scenes/player_2.tscn" id="2_r7n66"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 242)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(9.125, 1)
+texture = ExtResource("1_a3lpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+scale = Vector2(9.125, 1)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Player2" parent="." instance=ExtResource("2_r7n66")]
