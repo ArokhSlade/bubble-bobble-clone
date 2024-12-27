@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnpivlc46qfa"]
+[gd_scene load_steps=5 format=3 uid="uid://cjs4eqhdary5u"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_0ehd1"]
 [ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="2_sy1qm"]
