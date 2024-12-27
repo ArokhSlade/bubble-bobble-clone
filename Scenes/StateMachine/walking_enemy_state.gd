@@ -2,6 +2,7 @@ extends EnemyState
 class_name WalkingEnemyState
 
 func physics_update(delta):
+	print("WALK physics update")
 	super(delta)
 	
 	if not enemy.is_on_floor():

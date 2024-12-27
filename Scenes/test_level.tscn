@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjccks5pa0th6"]
+[gd_scene load_steps=4 format=3 uid="uid://cjccks5pa0th6"]
 
 [ext_resource type="Texture2D" uid="uid://dhck0rqwdx6db" path="res://icon.svg" id="1_a3lpc"]
 [ext_resource type="PackedScene" uid="uid://dv0p7bajrsvwb" path="res://Scenes/player_2.tscn" id="2_r7n66"]
+[ext_resource type="PackedScene" uid="uid://biu875o8joybp" path="res://Scenes/player_3.tscn" id="3_lfjpq"]
 
 [node name="TestLevel" type="Node2D"]
 
@@ -20,3 +21,31 @@ scale = Vector2(9.125, 1)
 polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
 
 [node name="Player2" parent="." instance=ExtResource("2_r7n66")]
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(570, 76)
+scale = Vector2(1, 2.65625)
+texture = ExtResource("1_a3lpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
+position = Vector2(570, 76)
+scale = Vector2(1, 2.65625)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-1152, 0)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D3"]
+position = Vector2(570, 76)
+scale = Vector2(1, 2.65625)
+texture = ExtResource("1_a3lpc")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
+position = Vector2(570, 76)
+scale = Vector2(1, 2.65625)
+polygon = PackedVector2Array(59.1, -64, -59, -64, -63.8, -59, -64, 61, -60.3, 64, 59.6, 64, 63.9, 59, 64, -61.1)
+
+[node name="Player3" parent="." instance=ExtResource("3_lfjpq")]

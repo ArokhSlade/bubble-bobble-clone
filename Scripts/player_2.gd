@@ -14,8 +14,8 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta):
-	update_sprite()
-	print("P2 Sprite coords: ", $Sprite2D.global_position)
+	update_sprite()	
+	print("P2 Sprite/pos/vel: ", $Sprite2D.global_position, " , ", global_position, " , ", velocity)
 
 func get_movement_request() -> Vector2:
 	
