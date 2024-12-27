@@ -31,7 +31,8 @@ func sink_to_starting_location(delta) :
 	state = State.ROAMING
 
 func sink(delta):
-	translate(Vector2(0, -sink_speed * delta))
+	translate(Vector2(0, sink_speed * delta))
+	print(global_position)
 
 func get_jump_height_in_tiles():
 	#TODO compute properly

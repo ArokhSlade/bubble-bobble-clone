@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalEnums="*res://Scripts/global_enums.gd"
-GlobalEnemyList="*res://addons/enemy_picker_plugin_1/global_enemy_list.tscn"
 
 [editor_plugins]
 

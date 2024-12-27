@@ -520,3 +520,6 @@ position = Vector2(104, 224)
 
 [node name="BasicBob" parent="." instance=ExtResource("3_8a1ja")]
 position = Vector2(192, 72)
+
+[node name="BasicBob2" parent="." instance=ExtResource("3_8a1ja")]
+position = Vector2(312, 128)
