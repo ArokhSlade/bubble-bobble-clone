@@ -16,6 +16,7 @@ height = 14.0
 collision_layer = 2
 collision_mask = 27
 script = ExtResource("1_ly0sc")
+jump_speed = -300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
