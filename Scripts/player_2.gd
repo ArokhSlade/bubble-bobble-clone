@@ -12,26 +12,22 @@ const Direction = GlobalEnums.Direction
 
 func _physics_process(delta):
 	move_and_slide()
-
+	
+func _process(delta):
+	update_sprite()
 
 func get_movement_request() -> Vector2:
 	
-	var wanna_stop : bool = false
-	
-	var move_intent : Direction = heading	
-	var result : Vector2
+	var move_request : Vector2
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		result.y += 1.0
+		move_request.y += 1.0
 		
-	var direction = Input.get_axis("ui_left", "ui_right")
-	result.x += direction
+	move_request.x += Input.get_axis("ui_left", "ui_right")
 	
-	move_intent = GlobalEnums.from_vector2(result)
-	update_heading(move_intent)
+	update_heading(GlobalEnums.from_vector2(move_request))	
 	
-	
-	return GlobalEnums.as_vector2(move_intent)
+	return move_request
 
 
 func update_heading(new_direction : Direction):
