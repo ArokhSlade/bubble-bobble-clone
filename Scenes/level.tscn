@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://nh5mbkqexrpf" path="res://Scenes/floating_bubble.tscn" id="5_32lm8"]
 [ext_resource type="PackedScene" uid="uid://dv0p7bajrsvwb" path="res://Scenes/player_2.tscn" id="7_dxt56"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_waqjy"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8kjsv"]
 texture = ExtResource("1_nitc3")
 2:1/0 = 0
 3:1/0 = 0
@@ -495,7 +495,7 @@ texture = ExtResource("1_nitc3")
 
 [sub_resource type="TileSet" id="TileSet_nas60"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_waqjy")
+sources/0 = SubResource("TileSetAtlasSource_8kjsv")
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_ly5as")

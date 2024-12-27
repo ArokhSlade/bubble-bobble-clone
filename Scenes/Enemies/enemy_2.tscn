@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://d11yc6saq0hd4"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_2.gd" id="1_exwdb"]
+[ext_resource type="Texture2D" uid="uid://dkjwehvr7es2t" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_011.png" id="3_lq4x7"]
+[ext_resource type="PackedScene" uid="uid://cldnb3v57g73j" path="res://Scenes/StateMachine/state_machine.tscn" id="4_pj4ey"]
+[ext_resource type="PackedScene" uid="uid://cdmj3s1dht7ce" path="res://Scenes/StateMachine/falling_enemy_state.tscn" id="5_de7co"]
+[ext_resource type="PackedScene" uid="uid://crcokjw5q64fb" path="res://Scenes/StateMachine/idle_enemy_state.tscn" id="6_gtvse"]
+[ext_resource type="PackedScene" uid="uid://c3ow80l8gvy1h" path="res://Scenes/StateMachine/jumping_enemy_state.tscn" id="7_5sn8q"]
+[ext_resource type="PackedScene" uid="uid://3wuvitb0kk2g" path="res://Scenes/StateMachine/walking_enemy_state.tscn" id="8_k86i1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qojwd"]
+radius = 4.0
+height = 16.0
+
+[node name="BasicBob" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 31
+script = ExtResource("1_exwdb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qojwd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("3_lq4x7")
+hframes = 4
+vframes = 4
+frame = 9
+
+[node name="Label" type="Label" parent="."]
+offset_left = -9.0
+offset_top = -25.0
+offset_right = 10.0
+offset_bottom = -12.0
+theme_override_font_sizes/font_size = 9
+text = "NPC"
+
+[node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("4_pj4ey")]
+initial_state = NodePath("Idle")
+
+[node name="Falling" parent="StateMachine" node_paths=PackedStringArray("enemy") instance=ExtResource("5_de7co")]
+enemy = NodePath("../..")
+
+[node name="Idle" parent="StateMachine" node_paths=PackedStringArray("enemy") instance=ExtResource("6_gtvse")]
+enemy = NodePath("../..")
+
+[node name="Jumping" parent="StateMachine" node_paths=PackedStringArray("enemy") instance=ExtResource("7_5sn8q")]
+enemy = NodePath("../..")
+
+[node name="Walking" parent="StateMachine" node_paths=PackedStringArray("enemy") instance=ExtResource("8_k86i1")]
+enemy = NodePath("../..")

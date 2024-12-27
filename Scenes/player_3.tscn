@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://biu875o8joybp"]
+
+[ext_resource type="Script" path="res://Scripts/player_3.gd" id="1_h75m5"]
+[ext_resource type="Texture2D" uid="uid://boj5g1ym7fvh6" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_010.png" id="3_xybef"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xh4ob"]
+radius = 3.0
+height = 14.0
+
+[node name="Player3" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 25
+script = ExtResource("1_h75m5")
+jump_speed = -300.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("3_xybef")
+hframes = 4
+vframes = 4
+frame = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_xh4ob")
