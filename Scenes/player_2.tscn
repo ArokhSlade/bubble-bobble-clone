@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dv0p7bajrsvwb"]
 
 [ext_resource type="Script" path="res://Scripts/player_2.gd" id="1_ly0sc"]
-[ext_resource type="Texture2D" uid="uid://boj5g1ym7fvh6" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_010.png" id="3_0sbve"]
+[ext_resource type="Texture2D" uid="uid://biyjunh7maktj" path="res://Assets/Free Character Sprites 2 - Fantasy Dreamland/24x24/Char_007.png" id="2_7l2mb"]
 [ext_resource type="PackedScene" uid="uid://cldnb3v57g73j" path="res://Scenes/StateMachine/state_machine.tscn" id="3_qtymu"]
 [ext_resource type="PackedScene" uid="uid://cdmj3s1dht7ce" path="res://Scenes/StateMachine/falling_enemy_state.tscn" id="4_xycua"]
 [ext_resource type="PackedScene" uid="uid://crcokjw5q64fb" path="res://Scenes/StateMachine/idle_enemy_state.tscn" id="5_iu5tp"]
@@ -14,13 +14,13 @@ height = 14.0
 
 [node name="Player2" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 27
+collision_mask = 25
 script = ExtResource("1_ly0sc")
 jump_speed = -300.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -5)
-texture = ExtResource("3_0sbve")
+texture = ExtResource("2_7l2mb")
 hframes = 4
 vframes = 4
 frame = 9

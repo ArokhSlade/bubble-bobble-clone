@@ -10,10 +10,15 @@ func physics_update(delta):
 	super(delta)
 	
 	if not enemy.is_on_floor():
-		#if is_first_frame :
-			#is_first_frame = false
-		#else: 
+		
 		enemy.velocity += enemy.get_gravity() * delta
+		
+		if is_first_frame :			
+			is_first_frame = false
+			print("player 2 falls: ", enemy.velocity.y)
+		else :
+			print("player 2 falling: ", enemy.velocity.y)
+			
 		enemy.velocity.x = move_request.x * enemy.speed
 		
 	

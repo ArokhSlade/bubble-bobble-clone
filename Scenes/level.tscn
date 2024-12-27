@@ -527,3 +527,9 @@ position = Vector2(312, 128)
 
 [node name="Player2" parent="." instance=ExtResource("7_dxt56")]
 position = Vector2(320, 72)
+
+[node name="Player3" parent="." instance=ExtResource("2_ledpb")]
+position = Vector2(88, 184)
+
+[node name="Player4" parent="." instance=ExtResource("7_dxt56")]
+position = Vector2(400, 128)

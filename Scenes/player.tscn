@@ -65,7 +65,7 @@ size = Vector2(4, 16)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-collision_mask = 27
+collision_mask = 25
 script = ExtResource("1_q6a1q")
 jump_speed = -300.0
 projectile = ExtResource("2_fc3x7")
