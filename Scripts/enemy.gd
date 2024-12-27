@@ -8,9 +8,30 @@ extends CharacterBody2D
 @export var FloatingBubble : PackedScene
 
 const Direction = GlobalEnums.Direction
+const State = GlobalEnums.EnemyState
+
+@onready var state : State = State.PRE_GAME
 
 var heading : Direction = Direction.RIGHT
 var is_jumping = false
+
+
+@onready var starting_location : Vector2 = global_position
+
+var LOWER_HALF_HEIGHT = 10 # TODO
+var sink_speed = 50
+
+func _ready():
+	global_position.y = 0 - LOWER_HALF_HEIGHT
+
+func sink_to_starting_location(delta) : 
+	if global_position.y < starting_location.y:
+		sink(delta)
+		return
+	state = State.ROAMING
+
+func sink(delta):
+	translate(Vector2(0, -sink_speed * delta))
 
 func get_jump_height_in_tiles():
 	#TODO compute properly
@@ -22,22 +43,28 @@ func get_jump_width_in_tiles():
 
 func _physics_process(delta):
 	
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	match state:
+		State.PRE_GAME:
+			sink_to_starting_location(delta)
+		State.ROAMING:
+			if not is_on_floor():
+				velocity += get_gravity() * delta
 
-	var move_request = get_movement_request()
-	
-	
-	if move_request.y > 0.0 and is_on_floor():
-		velocity.y = jump_speed
-	
-	if move_request.x:
-		velocity.x = move_request.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
+			var move_request = get_movement_request()
+			
+			
+			if move_request.y > 0.0 and is_on_floor():
+				velocity.y = jump_speed
+			
+			if move_request.x:
+				velocity.x = move_request.x * speed
+			else:
+				velocity.x = move_toward(velocity.x, 0, speed)
 
-	move_and_slide()
-
+			move_and_slide()
+		_:
+			push_error("invalid enemy state for ", str(self))
+	
 
 func get_movement_request() -> Vector2:
 	

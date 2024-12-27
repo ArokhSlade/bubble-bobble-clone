@@ -1,5 +1,13 @@
 extends Node
 
+#NOTE(ArokhSlade, 2024 12 27): these are ideas for now
+enum EnemyState {
+	NONE,
+	PRE_GAME,
+	ROAMING,
+	DEAD
+}
+
 enum Direction {
 	NONE 		= 0x0, 
 	LEFT		= 0x1 << 0, 
