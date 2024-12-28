@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6b0vvxsem7km"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/bubbled.gd" id="1_84tpe"]
+
+[node name="Bubbled" type="Node"]
+script = ExtResource("1_84tpe")

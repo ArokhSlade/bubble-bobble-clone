@@ -18,6 +18,7 @@ var sink_speed = 50
 
 
 func _physics_process(delta):
+	#velocity and other params are edited directly by state machine states
 	move_and_slide()
 	
 func get_movement_request() -> Vector2 :
