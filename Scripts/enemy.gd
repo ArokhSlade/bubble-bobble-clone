@@ -56,7 +56,7 @@ func _physics_process(delta):
 			var move_request = get_movement_request()
 			
 			
-			if move_request.y > 0.0 and is_on_floor():
+			if move_request.y < 0.0 and is_on_floor():
 				velocity.y = jump_speed
 			
 			if move_request.x:

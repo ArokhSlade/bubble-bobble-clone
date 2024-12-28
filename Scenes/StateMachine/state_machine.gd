@@ -12,6 +12,8 @@ func _ready():
 		if child is State:
 			all_states[child.name.to_lower()] = child
 			child.state_changed.connect(on_state_changed)
+	
+	initial_state.enter()
 		
 func on_state_changed(from : State, to : String):
 	from.exit()
