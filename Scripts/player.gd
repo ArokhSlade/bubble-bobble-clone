@@ -18,13 +18,9 @@ func get_width():
 func _ready():
 	$ReloadTimer.wait_time = reload_seconds
 
-func _process(delta):
-	print("P1 Sprite/pos/vel: ", $Sprite2D.global_position, " , ", global_position, " , ", velocity)
-
 var physics_counter : int = 0
 
 func _physics_process(delta):
-	print("P1 physics update: ", physics_counter)
 	physics_counter += 1
 	
 	# Add the gravity.

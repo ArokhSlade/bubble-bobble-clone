@@ -7,7 +7,6 @@ func enter():
 	is_first_frame = true
 
 func physics_update(delta):
-	print("FALL physics update")
 	super(delta)
 	
 	if not character.is_on_floor():		

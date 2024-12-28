@@ -38,24 +38,20 @@ theme_override_font_sizes/font_size = 9
 text = "NPC"
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("4_pj4ey")]
-initial_state = NodePath("Node/PreGameFloatingEnemyState")
+initial_state = NodePath("PreGameFloatingEnemyState")
+params = {
+"character": NodePath("..")
+}
 
-[node name="Node" type="Node" parent="StateMachine"]
+[node name="Falling" parent="StateMachine" instance=ExtResource("5_de7co")]
 
-[node name="Falling" parent="StateMachine/Node" node_paths=PackedStringArray("character") instance=ExtResource("5_de7co")]
-character = NodePath("../../..")
+[node name="Idle" parent="StateMachine" instance=ExtResource("6_gtvse")]
 
-[node name="Idle" parent="StateMachine/Node" node_paths=PackedStringArray("character") instance=ExtResource("6_gtvse")]
-character = NodePath("../../..")
+[node name="Jumping" parent="StateMachine" instance=ExtResource("7_5sn8q")]
 
-[node name="Jumping" parent="StateMachine/Node" node_paths=PackedStringArray("character") instance=ExtResource("7_5sn8q")]
-character = NodePath("../../..")
+[node name="Walking" parent="StateMachine" instance=ExtResource("8_k86i1")]
 
-[node name="Walking" parent="StateMachine/Node" node_paths=PackedStringArray("character") instance=ExtResource("8_k86i1")]
-character = NodePath("../../..")
-
-[node name="PreGameFloatingEnemyState" parent="StateMachine/Node" node_paths=PackedStringArray("character") instance=ExtResource("8_edbti")]
-character = NodePath("../../..")
+[node name="PreGameFloatingEnemyState" parent="StateMachine" instance=ExtResource("8_edbti")]
 
 [node name="EnemyBrain" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("8_nuf2u")]
 enemy = NodePath("..")

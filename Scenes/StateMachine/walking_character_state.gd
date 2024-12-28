@@ -2,7 +2,6 @@ extends CharacterState
 class_name WalkingCharacterState
 
 func physics_update(delta):
-	print("WALK physics update")
 	super(delta)
 	
 	if not character.is_on_floor():

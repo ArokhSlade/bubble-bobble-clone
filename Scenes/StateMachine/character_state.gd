@@ -2,8 +2,7 @@ extends State
 class_name CharacterState
 
 
-
-@export var character : CharacterBody2D
+var character : CharacterBody2D
 
 
 const Direction = GlobalEnums.Direction

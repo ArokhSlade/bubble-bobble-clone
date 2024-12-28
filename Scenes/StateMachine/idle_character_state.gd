@@ -2,7 +2,6 @@ extends CharacterState
 class_name IdleCharacterState
 
 func physics_update(delta):
-	print("IDLE physics update")
 	super(delta)
 	if move_request.y != 0.0:
 		state_changed.emit(self, "jumping")
@@ -15,5 +14,4 @@ func physics_update(delta):
 		
 
 func enter():
-	print("IDLE ENTER")
 	character.velocity = Vector2.ZERO
