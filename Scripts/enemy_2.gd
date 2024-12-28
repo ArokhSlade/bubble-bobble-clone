@@ -1,8 +1,5 @@
 extends CharacterBody2D
 
-
-
-
 @export var speed = 120.0
 @export var jump_speed = -210.0
 @export var FloatingBubble : PackedScene

@@ -1,5 +1,5 @@
-extends EnemyState
-class_name IdleEnemyState
+extends CharacterState
+class_name IdleCharacterState
 
 func physics_update(delta):
 	print("IDLE physics update")
@@ -8,7 +8,7 @@ func physics_update(delta):
 		state_changed.emit(self, "jumping")
 	elif move_request.x != 0.0:
 		state_changed.emit(self, "walking")
-	elif not enemy.is_on_floor():
+	elif not character.is_on_floor():
 		state_changed.emit(self, "falling")
 		
 		
@@ -16,4 +16,4 @@ func physics_update(delta):
 
 func enter():
 	print("IDLE ENTER")
-	enemy.velocity = Vector2.ZERO
+	character.velocity = Vector2.ZERO

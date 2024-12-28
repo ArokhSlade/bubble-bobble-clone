@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://t06df6ekepu2"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/state_initializer.gd" id="1_pv672"]
+
+[node name="StateInitializer" type="Node"]
+script = ExtResource("1_pv672")

@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://3wuvitb0kk2g"]
-
-[ext_resource type="Script" path="res://Scenes/StateMachine/walking_enemy_state.gd" id="1_ctjlw"]
-
-[node name="WalkingEnemyState" type="Node"]
-script = ExtResource("1_ctjlw")

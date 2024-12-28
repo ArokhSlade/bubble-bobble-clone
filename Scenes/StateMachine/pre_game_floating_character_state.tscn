@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg4kcv3s53j8p"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/pre_game_floating_character_state.gd" id="1_eed5n"]
+
+[node name="PreGameFloatingEnemyState" type="Node"]
+script = ExtResource("1_eed5n")

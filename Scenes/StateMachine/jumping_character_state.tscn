@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ow80l8gvy1h"]
+
+[ext_resource type="Script" path="res://Scenes/StateMachine/jumping_character_state.gd" id="1_dygil"]
+
+[node name="JumpingCharacterState" type="Node"]
+script = ExtResource("1_dygil")

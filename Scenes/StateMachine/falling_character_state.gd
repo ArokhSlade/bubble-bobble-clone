@@ -1,5 +1,5 @@
-extends EnemyState
-class_name FallingEnemyState
+extends CharacterState
+class_name FallingCharacterState
 
 var is_first_frame : bool
 
@@ -10,9 +10,9 @@ func physics_update(delta):
 	print("FALL physics update")
 	super(delta)
 	
-	if not enemy.is_on_floor():		
-		enemy.velocity += enemy.get_gravity() * delta
-		enemy.velocity.x = move_request.x * enemy.speed
+	if not character.is_on_floor():		
+		character.velocity += character.get_gravity() * delta
+		character.velocity.x = move_request.x * character.speed
 	
 	elif move_request.y != 0.0:
 			state_changed.emit(self,"jumping")
