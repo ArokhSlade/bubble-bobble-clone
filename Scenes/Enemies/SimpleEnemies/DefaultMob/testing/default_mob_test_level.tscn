@@ -501,7 +501,7 @@ script = ExtResource("1_nihy4")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(0, 242)
+position = Vector2(3, 330)
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
@@ -550,5 +550,15 @@ unique_name_in_owner = true
 [node name="DefaultMob" parent="." instance=ExtResource("5_1e552")]
 position = Vector2(217, 77)
 
+[node name="DefaultMob2" parent="." instance=ExtResource("5_1e552")]
+position = Vector2(328, 136)
+
+[node name="DefaultMob3" parent="." instance=ExtResource("5_1e552")]
+position = Vector2(98, 182)
+
 [connection signal="pre_game_float_begun" from="DefaultMob" to="." method="_on_default_mob_pre_game_float_begun"]
 [connection signal="pre_game_float_finished" from="DefaultMob" to="." method="_on_default_mob_pre_game_float_finished"]
+[connection signal="pre_game_float_begun" from="DefaultMob2" to="." method="_on_default_mob_pre_game_float_begun"]
+[connection signal="pre_game_float_finished" from="DefaultMob2" to="." method="_on_default_mob_pre_game_float_finished"]
+[connection signal="pre_game_float_begun" from="DefaultMob3" to="." method="_on_default_mob_pre_game_float_begun"]
+[connection signal="pre_game_float_finished" from="DefaultMob3" to="." method="_on_default_mob_pre_game_float_finished"]

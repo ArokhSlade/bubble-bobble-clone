@@ -18,6 +18,7 @@ height = 16.0
 [node name="DefaultMob" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 31
+slide_on_ceiling = false
 script = ExtResource("1_jwci4")
 heading = 2
 
