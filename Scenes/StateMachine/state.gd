@@ -1,12 +1,16 @@
 extends Node
 class_name State
 
-signal state_changed(State, String)
 
-func enter():
+var stateful_object
+
+signal transitioned(State, String)
+
+
+func enter(previous : State = null):
 	pass
 	
-func exit():
+func exit(next : State = null):
 	pass
 	
 func update(delta):

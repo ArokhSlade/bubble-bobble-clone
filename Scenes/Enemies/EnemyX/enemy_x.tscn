@@ -1,0 +1,50 @@
+[gd_scene load_steps=12 format=3 uid="uid://c4dw8gscfy4sk"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/enemy_x.gd" id="1_7f5ie"]
+[ext_resource type="Script" path="res://Scenes/StateMachine/state_machine.gd" id="2_44jlj"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/live.gd" id="2_aa06e"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/rage.gd" id="3_hrg7b"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/chill.gd" id="4_3vg3l"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/bubbled.gd" id="5_cell2"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/gone.gd" id="6_e36e5"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/pre_game_float.gd" id="8_ylnce"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/morph.gd" id="9_a2wl0"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/shoot.gd" id="10_c60kr"]
+[ext_resource type="Script" path="res://Scenes/Enemies/EnemyX/move.gd" id="11_m23bb"]
+
+[node name="EnemyX" type="Node2D"]
+script = ExtResource("1_7f5ie")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_44jlj")
+
+[node name="PreGameFloat" type="Node" parent="StateMachine"]
+script = ExtResource("8_ylnce")
+
+[node name="Live" type="Node" parent="StateMachine"]
+script = ExtResource("2_aa06e")
+
+[node name="Rage" type="Node" parent="StateMachine/Live"]
+script = ExtResource("3_hrg7b")
+
+[node name="Chill" type="Node" parent="StateMachine/Live"]
+script = ExtResource("4_3vg3l")
+
+[node name="Bubble" type="Node" parent="StateMachine/Live"]
+script = ExtResource("5_cell2")
+
+[node name="Gone" type="Node" parent="StateMachine"]
+script = ExtResource("6_e36e5")
+
+[node name="Receptor" type="Node" parent="."]
+
+[node name="Actuators" type="Node" parent="."]
+
+[node name="Morph" type="Node" parent="Actuators"]
+script = ExtResource("9_a2wl0")
+
+[node name="Shoot" type="Node" parent="Actuators"]
+script = ExtResource("10_c60kr")
+
+[node name="Move" type="Node" parent="Actuators"]
+script = ExtResource("11_m23bb")

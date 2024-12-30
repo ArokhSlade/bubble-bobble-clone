@@ -1,12 +1,14 @@
 extends Node
 class_name StateMachine
 
+@export var stateful_object : Node
 
 @onready var current_state : State = initial_state
 var all_states : Dictionary
 
 @export var initial_state : State
 @export var params : Dictionary
+
 func _ready():
 	for child in get_children():
 		if child is State:

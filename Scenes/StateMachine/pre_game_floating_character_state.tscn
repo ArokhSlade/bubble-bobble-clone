@@ -4,3 +4,4 @@
 
 [node name="PreGameFloatingEnemyState" type="Node"]
 script = ExtResource("1_eed5n")
+floating_speed = null

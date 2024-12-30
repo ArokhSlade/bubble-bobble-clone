@@ -1,5 +1,4 @@
 extends CharacterState
-class_name Bubbled
 
 
 @export var bubbled_sprite : Sprite2D 
