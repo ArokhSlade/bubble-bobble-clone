@@ -1,11 +1,10 @@
 extends Node
 class_name State
 
-
+var state_machine
 var stateful_object
 
-signal transitioned(State, String)
-
+signal transitioned(from: State, to: State)
 
 func enter(previous : State = null):
 	pass

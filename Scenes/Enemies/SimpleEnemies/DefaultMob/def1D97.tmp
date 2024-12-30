@@ -54,7 +54,7 @@ initial_state = NodePath("PreGameFloating")
 
 [node name="PreGameFloating" type="Node" parent="StateMachine" node_paths=PackedStringArray("sprite")]
 script = ExtResource("4_gvg5v")
-float_speed = 80.0
+float_speed = 40.0
 sprite = NodePath("../../Sprite2D")
 
 [node name="Standing" type="Node" parent="StateMachine"]
@@ -73,11 +73,8 @@ script = ExtResource("7_hxmg7")
 script = ExtResource("7_jk2ly")
 body = NodePath("..")
 
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("body")]
+[node name="Movement" type="Node" parent="."]
 script = ExtResource("10_6xat0")
-body = NodePath("..")
-walk_speed = 60
-jump_speed = -300
 
 [connection signal="pre_game_floating_entered" from="StateMachine/PreGameFloating" to="." method="_on_pre_game_floating_entered"]
 [connection signal="pre_game_floating_finished" from="StateMachine/PreGameFloating" to="." method="_on_pre_game_floating_finished"]

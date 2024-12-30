@@ -52,7 +52,6 @@ params = {
 [node name="Walking" parent="StateMachine" instance=ExtResource("8_k86i1")]
 
 [node name="PreGameFloatingEnemyState" parent="StateMachine" instance=ExtResource("8_edbti")]
-floating_speed = null
 
 [node name="EnemyBrain" parent="." node_paths=PackedStringArray("enemy") instance=ExtResource("8_nuf2u")]
 enemy = NodePath("..")

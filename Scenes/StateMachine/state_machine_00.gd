@@ -1,5 +1,5 @@
 extends Node
-class_name StateMachine
+class_name StateMachine_00
 
 @export var stateful_object : Node
 
@@ -14,15 +14,15 @@ func _ready():
 		if child is State:
 			child.state_machine = self
 			all_states[child.name.to_lower()] = child
-			child.transitioned.connect(on_transitioned)
+			child.state_changed.connect(on_state_changed)
 			child.stateful_object = stateful_object
 			print("child added: ", child.name)
 	
 	initial_state.enter()
 	
-func on_transitioned(from : State, to : State):
+func on_state_changed(from : State, to : String):
 	from.exit()
-	current_state = to
+	current_state = all_states[to.to_lower()]
 	current_state.enter()
 	
 func _process(delta):
